@@ -6,9 +6,11 @@ mongoose.connect('mongodb://localhost/snapcat');
 const Schema = mongoose.Schema;
 
 const catSchema = new Schema ({
-  name: String,
-  breed: String,
-  age: Number
+  name: { type: String, required: true },
+  // the name of the cat is always required
+  breed: { type: String },
+  age: { type: Number, default: 0 }
+  // defaults the value of age to 0
 });
 
 const Cat = mongoose.model(
